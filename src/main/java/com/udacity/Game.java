@@ -176,7 +176,7 @@ public class Game {
         {
             for(int j = 0 ; j < 3; j++)
             {
-                if(x[i][j] == '-' )
+                if(grid[i][j] == '-' )
                 {
                     return "None";
                 }
