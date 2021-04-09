@@ -149,18 +149,49 @@ public class Game {
      * @return String indicating the outcome of the game: "X wins" or "O wins" or "Tie" or "None"
      */
     public String checkGameWinner(char [][]grid){
-        String result = "None";
-        //Student code goes here ...
-        return result;
-    }
+        
+        if(     (grid[0][0] == 'x' && grid[0][1] == 'x' && grid[0][2] == 'x') ||
+                (grid[1][0] == 'x' && grid[1][1] == 'x' && grid[1][2] == 'x') ||
+                (grid[2][0] == 'x' && grid[2][1] == 'x' && grid[2][2] == 'x') ||
+                (grid[0][0] == 'x' && grid[1][0] == 'x' && grid[2][0] == 'x') ||
+                (grid[0][1] == 'x' && grid[1][1] == 'x' && grid[2][1] == 'x') ||
+                (grid[0][2] == 'x' && grid[1][2] == 'x' && grid[2][2] == 'x') ||
+                (grid[0][0] == 'x' && grid[1][1] == 'x' && grid[2][2] == 'x') ||
+                (grid[0][2] == 'x' && grid[1][1] == 'x' && grid[2][0] == 'x'))
+        {
+            return "x wins";
+        }
+        if(     (grid[0][0] == 'o' && grid[0][1] == 'o' && grid[0][2] == 'o') ||
+                (grid[1][0] == 'o' && grid[1][1] == 'o' && grid[1][2] == 'o') ||
+                (grid[2][0] == 'o' && grid[2][1] == 'o' && grid[2][2] == 'o') ||
+                (grid[0][0] == 'o' && grid[1][0] == 'o' && grid[2][0] == 'o') ||
+                (grid[0][1] == 'o' && grid[1][1] == 'o' && grid[2][1] == 'o') ||
+                (grid[0][2] == 'o' && grid[1][2] == 'o' && grid[2][2] == 'o') ||
+                (grid[0][0] == 'o' && grid[1][1] == 'o' && grid[2][2] == 'o') ||
+                (grid[0][2] == 'o' && grid[1][1] == 'o' && grid[2][0] == 'o'))
+        {
+            return "O wins";
+        }
+        for(int i = 0 ; i < 3 ;i++)
+        {
+            for(int j = 0 ; j < 3; j++)
+            {
+                if(x[i][j] == '-' )
+                {
+                    return "None";
+                }
+            }
+        }
 
-    /**
-     * Main function
-     * @param args command line arguments
-     */
-    public static void main(String args[]){
-        Game game = new Game();
-        gui = new GameUI(game);
-    }
+        return "Tie";
+	}
 
-}
+        /**
+         * Main function
+         * @param args command line arguments
+         */
+        public static void main(String args[]){
+            Game game = new Game();
+            gui = new GameUI(game);
+        }
+    }
